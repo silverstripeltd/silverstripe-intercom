@@ -3,12 +3,13 @@
     "description": "SilverStripe integration with Intercom.io",
     "type": "silverstripe-vendormodule",
     "require": {
-        "php": ">=5.6.0",
-        "silverstripe/framework": "^4",
-        "intercom/intercom-php": "^3.1"
+        "php": ">=8",
+        "silverstripe/framework": "^4.11",
+        "intercom/intercom-php": "dev-master",
+        "php-http/guzzle7-adapter": "^1.0",
+        "symfony/http-client": "^6.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.7",
         "squizlabs/php_codesniffer": "^3.0"
     },
     "extra": {
@@ -31,5 +32,11 @@
     },
     "replace": {
         "sminnee/silverstripe-intercom": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "silverstripe/vendor-plugin": true
+        }
     }
 }
