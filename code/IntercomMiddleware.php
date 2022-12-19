@@ -45,9 +45,10 @@ class IntercomMiddleware implements HTTPMiddleware
             $tags = $this->tagProvider->forTemplate();
 
             if ($tags) {
-                $content = $response->getBody();
-                $content = preg_replace("/(<\/body[^>]*>)/i", $tags . "\\1", $content);
-                $response->setBody($content);
+                if ($content = $response->getBody()) {
+                    $content = preg_replace("/(<\/body[^>]*>)/i", $tags . "\\1", $content);
+                    $response->setBody($content);
+                }
             }
         }
 
