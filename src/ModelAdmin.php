@@ -22,10 +22,10 @@ class ModelAdmin extends BaseModelAdmin
     /**
      * @var array
      */
-    private static $managed_models = array(
+    private static $managed_models = [
         "SilverStripe\\Intercom\\Model\\Tag",
         "SilverStripe\\Intercom\\Model\\Team",
-    );
+    ];
 
     /**
      * @var string
