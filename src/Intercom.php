@@ -151,10 +151,10 @@ class Intercom
      */
     public function trackEvent($eventName, $eventData = [], Member $member = null)
     {
-        $payload = array(
+        $payload = [
             'event_name' => $eventName,
             'created_at' => time(),
-        );
+        ];
 
         $scriptTags = Injector::inst()->create(IntercomScriptTags::class);
         $settings = $scriptTags->getIntercomSettings($member);

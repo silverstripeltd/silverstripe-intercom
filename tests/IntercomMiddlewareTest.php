@@ -23,7 +23,7 @@ class IntercomMiddlewareTest extends SapphireTest
         $tag = DBField::create_field(DBHTMLText::class, '<script>test;</script>');
 
         // Check that script has been added before the body
-        $assertion = ($match) ? 'assertRegExp' : 'assertNotRegExp';
+        $assertion = ($match) ? 'assertMatchesRegularExpression' : 'assertDoesNotMatchRegularExpression';
         $this->{$assertion}(
             '/<script>test;<\/script><\/body>/is',
             $this->checkFilterForResponse($response, $tag)->getBody()
@@ -68,7 +68,7 @@ class IntercomMiddlewareTest extends SapphireTest
         $tag = DBField::create_field(DBHTMLText::class, '');
 
         // Check that script has been added before the body
-        $this->assertRegExp(
+        $this->assertMatchesRegularExpression(
             '/<\/p><\/body>/i',
             $this->checkFilterForResponse($response, $tag)->getBody()
         );
